@@ -46,15 +46,23 @@ header{
     font-size: 16px;
     outline: none;
     border: none;
-    background-color: rgb(7, 116, 240);
+    background-color: rgb(30, 102, 98);
     color: #fff;
     border-radius: 4px;
+    /* transition: 0.2s ease-in-out all; */
 }
 
 .searchDiv button:hover{
-    background-color: blue;
+    /* transform: scale(0.975); */
+    cursor: pointer;
 }
 
+#themeBtn{
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
 
 /* .searchDiv input{
     border: none;
@@ -126,4 +134,17 @@ a{
 
 a:hover{
     color: red;
+}
+
+@media screen and (max-width:600px) {
+    .searchDiv{
+        width: 80%;
+    }   
+    .searchDiv button{
+        font-size: 12px;
+    }
+
+    header{
+        padding: 8px 10px;
+    }
 }

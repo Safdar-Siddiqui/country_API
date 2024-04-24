@@ -5,61 +5,88 @@
     font-family: sans-serif;
 }
 
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .container{
-    /* border: 1px solid red; */
     width: 95%;
     margin-inline: auto;
-    height: 500px;
-    padding: 15px 10px;
+    height: fit-content;
+    padding: 15px;
     display: flex;
     align-items: center;
-    margin-top: 20px;
+    justify-content: center;
     box-shadow: -1px -1px 2px rgba(0,0,0,0.4) , 1px 1px 2px rgba(0,0,0,0.4);
     border-radius: 5px;
-
 }
 
 .details-card{
     /* background-color: orange; */
     width: 100%;
     height: auto;
-    padding: 20px 10px;
+    padding: 10px 10px;
     display: flex;
+    /* align-items: center;
+    justify-content:center; */
+    gap: 20px;
 }
 
-/* .details-card .img{
-    width: 30%;
-    height: 350px;
-    background-color: blue;
-} */
-
-.details-card .details{
-    border: 1px solid black;
-    display: block;
-    width: 60%;
-    height: 350px;
-    margin-left: 25px;
-}
 
 #dtlCard-details{
-    width: 70%;
-    line-height: 40px;
-    margin-left: 50px;
+    width: 60%;
+    line-height: 30px;
+    /* background-color: blueviolet; */
+    /* border-right: 2px dashed gray; */
+    /* border-radius: 4px; */
+    padding: 5px 10px;
+}
+
+#dtlCard-details h2 {
+    margin-bottom: 20px;
 }
 
 #dtlCardImg{
-    width: 30%;
-    height: 100%;
-    /* background-color: red; */
-    padding: 10px;
-    /* border-radius: 50%; */
+    width: 40%;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+
 }
 
 #dtlCardImg img{
     width: 100%;
-    height: 400px;
+    height: fit-content;
+}
+
+
+@media (max-width: 700px){
+    .container{
+        margin-block: 20px;
+    }
+    .details-card{
+        flex-direction: column-reverse;
+        align-items: center;
+        padding: 0;
+    }
+
+    #dtlCardImg{
+        padding: 0;
+        width: 80%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    #dtlCard-details{
+        width: 80%;
+        /* height: auto; */
+        /* line-height: 30px;
+        margin-left: 50px;
+        background-color: blueviolet; */
+    }
 }

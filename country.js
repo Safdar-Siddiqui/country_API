@@ -20,16 +20,16 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
 
         cardDetails.innerHTML += `
         <div id="dtlCard-details">
-        <h1>${data[i].name.official} </h1>
-        <h3> Continent: ${data[i].status} </h3>
-        <h3> Capital: ${data[i].capital} </h3>
-        <h3> Region: ${data[i].region} </h3>
-        <h3> Sub-Region: ${data[i].subregion} </h3>
-        <h3> Currency: ${data[i].currencies} </h3>
-        <h3> Population: ${data[i].population.toLocaleString()} </h3>
-        <h3> Time Zone: ${data[i].timezones.toLocaleString()} </h3>
-        <h3> Urdu Name: ${data[i].translations.urd.official} </h3>
-        <h3> Border Countries: ${data[i].borders} </h3>
+            <h2>${data[i].name.official} </h2>
+            <p> <b> Continent:</b> ${data[i].status} </p>
+            <p> <b> Capital: </b> ${data[i].capital} </p>
+            <p> <b> Region: </b> ${data[i].region} </p>
+            <p> <b> Sub-Region: </b> ${data[i].subregion} </p>
+            <p> <b> Currency: </b> ${data[i].currencies} </p>
+            <p> <b> Population: </b> ${data[i].population.toLocaleString()} </p>
+            <p> <b> Time Zone: </b> ${data[i].timezones.toLocaleString()} </p>
+            <p> <b> Urdu Name: </b> ${data[i].translations.urd.official} </p>
+            <p> <b> Border Countries: </b> ${data[i].borders} </p>
         </div>
         <div id="dtlCardImg"> <img src="${image}"> </div>
         `

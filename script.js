@@ -23,7 +23,7 @@ fetch("https://restcountries.com/v3.1/all")
             <img src="${image}">
             <div class="card-content">
                 <div class = "cardTitle">
-                    <h2> <a href="/country.html?name=${data[i].name.common}" target="_blank"> ${commonName} </a> </h2>
+                    <h2> <a href="country.html?name=${data[i].name.common}" target="_blank"> ${commonName} </a> </h2>
                 </div>
                 <div class="content"> 
                     <h4> <span> Capital: </span>  ${capitalName}  </h4>

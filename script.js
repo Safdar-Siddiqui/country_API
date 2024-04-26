@@ -1,4 +1,5 @@
-let container = document.getElementById("container"); 
+let container = document.getElementById("container");
+let themeButton = document.querySelector("#themeBtn");
 
 fetch("https://restcountries.com/v3.1/all")
 .then(function(data){
@@ -39,3 +40,8 @@ fetch("https://restcountries.com/v3.1/all")
 .catch(function(error){
     console.log(error)
 })
+
+themeButton.addEventListener('click', function(){
+    document.body.classList.toggle("dark");
+})
+

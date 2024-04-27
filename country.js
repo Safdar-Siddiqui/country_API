@@ -19,9 +19,30 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
     for(var i=0; i<data.length; i++){
 
         // if(data[i].currencies){
-        //     console.log(Object.values(data.currencies).map((currency)=>currency.name).join(', '));
+        //     var curr = Object.entries(data.currencies).map((currency)=>currency.name.common).join(', ');
         // }
-    
+        console.log(data[i])
+
+        
+        if(data[i].currencies){
+            var curr = Object.entries(data[i].currencies)[0][1].name;
+        }
+        else{
+            curr = "No currency"
+        }
+
+
+        if (data[i].borders) {
+            var border = data[i].borders
+            var borders = border.join(', ');
+            // console.log(borders);
+        }
+        else{
+            border = "No Border Countries"
+        }
+
+        // console.log(curr + " hh ");
+
         var image = data[i].flags.svg;
 
         cardDetails.innerHTML += `
@@ -31,11 +52,13 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
             <p> <b> Capital: </b> ${data[i].capital} </p>
             <p> <b> Region: </b> ${data[i].region} </p>
             <p> <b> Sub-Region: </b> ${data[i].subregion} </p>
-            <p> <b> Currency: </b> ${data[i].currencies} </p>
+            <p> <b> Currency: </b> ${curr} </p>
             <p> <b> Population: </b> ${data[i].population.toLocaleString()} </p>
             <p> <b> Time Zone: </b> ${data[i].timezones.toLocaleString()} </p>
             <p> <b> Urdu Name: </b> ${data[i].translations.urd.official} </p>
-            <p> <b> Border Countries: </b> ${data[i].borders} </p>
+            <div id="borders"> 
+                <p> <b> Border Countries: </b> <span id="border-countries"> ${borders} </span> </p>
+            </div>
         </div>
         <div id="dtlCardImg"> <img src="${image}"> </div>
         `

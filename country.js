@@ -1,5 +1,6 @@
 let countryName = new URLSearchParams(location.search).get('name')
 let cardDetails = document.querySelector(".details-card");
+let themeButton = document.querySelector("#themeBtn");
 // var img = document.getElementById('img');
 // console.log(countryName)
 
@@ -16,12 +17,17 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
     // img.append(countryFlag);
 
     for(var i=0; i<data.length; i++){
+
+        // if(data[i].currencies){
+        //     console.log(Object.values(data.currencies).map((currency)=>currency.name).join(', '));
+        // }
+    
         var image = data[i].flags.svg;
 
         cardDetails.innerHTML += `
         <div id="dtlCard-details">
             <h2>${data[i].name.official} </h2>
-            <p> <b> Continent:</b> ${data[i].status} </p>
+            <p> <b> Continent:</b> ${data[i].continents} </p>
             <p> <b> Capital: </b> ${data[i].capital} </p>
             <p> <b> Region: </b> ${data[i].region} </p>
             <p> <b> Sub-Region: </b> ${data[i].subregion} </p>
@@ -33,6 +39,19 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
         </div>
         <div id="dtlCardImg"> <img src="${image}"> </div>
         `
+
+        
+
     }
     
+})
+
+themeButton.addEventListener('click', function(){
+    document.body.classList.toggle("dark");
+    if(themeButton.innerHTML == "Light_Mode"){
+        themeButton.innerHTML = "Dark_Mode";
+    }
+    else{
+        themeButton.innerHTML = "Light_Mode";
+    }
 })

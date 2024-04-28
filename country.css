@@ -47,7 +47,7 @@ body{
 
 #dtlCard-details{
     width: 60%;
-    line-height: 40px;
+    line-height: 25px;
     /* background-color: blueviolet; */
     /* border-right: 2px dashed gray; */
     /* border-radius: 4px; */
@@ -88,16 +88,16 @@ body{
 
     #dtlCardImg{
         padding: 0;
-        width: 80%;
+        width: 90%;
         height: auto;
         margin-bottom: 10px;
     }
 
     #dtlCard-details{
-        width: 80%;
+        width: 90%;
         /* height: auto; */
         /* line-height: 30px;
-        margin-left: 50px;
-        background-color: blueviolet; */
+        margin-left: 50px;*/
+        /* background-color: blueviolet;  */
     }
 }

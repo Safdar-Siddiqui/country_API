@@ -44,6 +44,9 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
         // console.log(curr + " hh ");
 
         var image = data[i].flags.svg;
+        var totalArea = data[i].area;
+        var totalPopulation = data[i].population;
+        var density = Math.trunc( totalPopulation / totalArea);
 
         cardDetails.innerHTML += `
         <div id="dtlCard-details">
@@ -53,7 +56,9 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
             <p> <b> Region: </b> ${data[i].region} </p>
             <p> <b> Sub-Region: </b> ${data[i].subregion} </p>
             <p> <b> Currency: </b> ${curr} </p>
-            <p> <b> Population: </b> ${data[i].population.toLocaleString()} </p>
+            <p> <b> Population: </b> ${totalPopulation.toLocaleString()} </p>
+            <p> <b> Area: </b> ${totalArea} Sq. KM </p>
+            <p> <b> Density: </b> <i> ${density} </i> persons per Sq. KM </p>
             <p> <b> Time Zone: </b> ${data[i].timezones.toLocaleString()} </p>
             <p> <b> Urdu Name: </b> ${data[i].translations.urd.official} </p>
             <div id="borders"> 

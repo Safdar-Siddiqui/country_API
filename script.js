@@ -19,15 +19,45 @@ fetch("https://restcountries.com/v3.1/all")
     console.log(error)
 })
 
+window.addEventListener('load', function(){
+    var localTheme = localStorage.getItem('theme');
+
+    if(localTheme == 'Dark_Mode'){
+        document.body.classList.add('dark');
+        themeButton.innerHTML = "Dark_Mode"
+    }
+    else{
+        document.body.classList.remove('dark')
+        themeButton.innerHTML = "Light_Mode"
+    }
+})
+
 themeButton.addEventListener('click', function(){
-    document.body.classList.toggle("dark");
     if(themeButton.innerHTML == "Light_Mode"){
         themeButton.innerHTML = "Dark_Mode";
+        document.body.classList.add("dark");
+        localStorage.setItem("theme", themeButton.innerHTML);        
     }
     else{
         themeButton.innerHTML = "Light_Mode";
+        document.body.classList.remove("dark");
+        localStorage.setItem("theme", themeButton.innerHTML);
     }
+    // document.body.classList.toggle("dark");
+    // themeButton.innerHTML = 'Light_Mode';
+    // localStorage.setItem("theme", themeButton.innerHTML)
+
+    // if(themeButton.innerHTML == "Dark_Mode"){
+    //     themeButton.innerHTML = "Light_Mode";
+    //     localStorage.setItem("theme", themeButton.innerHTML)
+    // }
+    // else{
+    //     themeButton.innerHTML = "Dark_Mode";
+    //     localStorage.setItem("theme", themeButton.innerHTML)
+    // }
 })
+
+
 
 function renderCountries(data){
     container.innerHTML = "";
@@ -35,8 +65,10 @@ function renderCountries(data){
         var commonName = data[i].name.common; 
         var capitalName = data[i].capital; 
         var populations = data[i].population;
+        // var area = data[i].area;
         var regionName = data[i].region;
         var image = data[i].flags.svg;
+
         container.innerHTML += `
         <div class="card">
             <img src="${image}">
@@ -51,16 +83,20 @@ function renderCountries(data){
                 </div>
             </div>
         </div>
-    
         `
     }
-
 }
 
 searchInput.addEventListener('input', (e)=>{
-    // let inputText = searchInput.value;
-    // if(e.key == "Enter"){
-            let filteredCountry = allCountries.filter((country)=> country.name.common.toLowerCase().includes(e.target.value.toLowerCase()) )     
+            let filteredCountry = allCountries.filter((country)=> country.name.common.toLowerCase().includes(searchInput.value.toLowerCase()) )     
             renderCountries(filteredCountry);
-    // }
 })
+
+// searchBtn.addEventListener("click", ()=>{
+//     let inputText = searchInput.value;
+//     for(var i=0; i<allCountries.length; i++){
+//         if (allCountries[i].name.common == inputText) {
+//             renderCountries(allCountries[i])  
+//           }            
+//     }
+// })

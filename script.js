@@ -43,6 +43,7 @@ themeButton.addEventListener('click', function(){
         document.body.classList.remove("dark");
         localStorage.setItem("theme", themeButton.innerHTML);
     }
+
     // document.body.classList.toggle("dark");
     // themeButton.innerHTML = 'Light_Mode';
     // localStorage.setItem("theme", themeButton.innerHTML)
